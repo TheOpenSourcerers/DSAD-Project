@@ -28,10 +28,6 @@ def join(input, new_line: bool = True):
 def getPath(name):
   return (OUTPUT_FILE_PATH / name).resolve()
 
-MYDIR = ("test")
-CHECK_FOLDER = os.path.isdir(MYDIR)
-
-# If folder doesn't exist, then create it.
 if not os.path.isdir(OUTPUT_FILE_PATH):
     os.makedirs(OUTPUT_FILE_PATH)
 
