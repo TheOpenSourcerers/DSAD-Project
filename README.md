@@ -1,7 +1,8 @@
-In the base folder, run:
-
-./Script/DSADProjVENV/Scripts/activate; pip install -r ./Install/libs.txt
-
+To install dependencies run in the base folder:
+```cmd
+virtualenv ./Script/DSADProjVENV; ./Script/DSADProjVENV/Scripts/activate; pip install -r ./Install/libs.txt
+```
 then run with:
-
-python ./Run.py
+```cmd
+python ./Script/Run.py
+```
