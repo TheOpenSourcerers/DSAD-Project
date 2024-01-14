@@ -6,3 +6,4 @@ then run with:
 ```cmd
 python ./Script/Run.py
 ```
+Tip: in Script/config.py you can choose what to show/save
