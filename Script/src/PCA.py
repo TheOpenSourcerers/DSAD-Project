@@ -111,6 +111,42 @@ class PCA:
     plt.title(title, fontsize=14, color='k', verticalalignment='bottom')
     plt.xlabel(XLabel, fontsize=14, color='k', verticalalignment='top')
 
-    components = ['C'+str(j+1) for j in range(eigenvalues.shape[0])]
+    components = ['PC'+str(j+1) for j in range(eigenvalues.shape[0])]
     plt.plot(components, eigenvalues, 'bo-')
     plt.axhline(y=1, color='r')
+
+  def visualize(self):
+    import plotly.express as px
+    explained_var_ratio = np.sum(self.explained_variance, axis=0) / np.sum(self.explained_variance)
+
+    if config.PCA_VIZ_PRINCIPAL_COMPONENTS:
+      lbls = {
+        str(i): f"{self.DataObj.variables[i]} ({var.round(2)}%)"
+        for i, var in enumerate(explained_var_ratio * 100)
+    }
+    fig = px.scatter_matrix(
+        self.DataObj.data,
+        dimensions=self.DataObj.variables,
+        color="Life satisfaction"
+    )
+    fig.update_traces(diagonal_visible=False)
+    fig.show()
+
+
+    if config.PCA_VIZ_2_PRINCIPAL_COMPONENTS:
+      sorted_components = np.argsort(explained_var_ratio)[::-1]
+      selected_components = sorted_components[:2]
+      total_variance_exp = np.sum(explained_var_ratio[selected_components])
+      lbls = {
+          str(i): f"{self.DataObj.variables[selected_components[i]]} ({explained_var_ratio[selected_components[i]].round(2)}%)"
+          for i in range(2)
+      }
+
+      fig = px.scatter_matrix(
+          self.principal_components[:, selected_components],
+          labels=lbls,
+          dimensions=[0, 1],
+          title=f"Total variance explained: {total_variance_exp.round(2)}%",
+      )
+      fig.update_traces(diagonal_visible=False)
+      fig.show()

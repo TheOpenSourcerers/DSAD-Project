@@ -25,6 +25,10 @@ PCA_SHOW_GRAPH_QUALITY_OF_POINTS            = True
 PCA_SHOW_GRAPH_CONTRIBUTION_OF_OBSERVATIONS = True
 PCA_SHOW_GRAPH_COMMONALITIES                = True
 
+PCA_VIZ_SCATTER_MATRIX                      = True
+PCA_VIZ_PRINCIPAL_COMPONENTS                = True
+PCA_VIZ_2_PRINCIPAL_COMPONENTS              = True
+
 PCA_SAVE_PRINCIPAL_COMPONENTS               = True
 PCA_SAVE_FACTOR_LOADINGS                    = True
 PCA_SAVE_SCORES                             = True
