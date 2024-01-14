@@ -1,9 +1,7 @@
 from src.utils.libs import *
 from src.utils.utils import *
-import src.graphics as gf
 from src.data import Data as DT
 from src.PCA import PCA
-import factor_analyzer as fa
 
 class EFA(PCA):
   def __init__(self, Data: DT):
