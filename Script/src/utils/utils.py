@@ -11,7 +11,7 @@ def custom_print(title: str = "", printable: any = "", final_line: bool = False,
     return
   length = 83-len(title)-2
   size = int(length/2)
-  print(f"{"="*size} {title} {"="*(length-size)}")
+  print(f"{'='*size} {title} {'='*(length-size)}")
   if round:
     printable = printable.round(2)
   print(printable)
